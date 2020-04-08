@@ -8,13 +8,18 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "tailwindcss": "^1.2.0"
   },
   "scripts": {
+    "build:styles": "postcss src/styles/tailwind.css -o src/styles/global.css",
+    "prebuild": "yarn build:styles",
+    "prestart": "yarn build:styles",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postbuild": "purgecss --css build/static/css/*.css --content build/static/index.html build/static/js/*.js --output build/static/css"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,6 +39,8 @@
   "devDependencies": {
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "autoprefixer": "^9.7.6",
     "eslint": "^6.8.0",
     "eslint-config-babel": "^9.0.0",
     "eslint-config-prettier": "^6.10.1",
@@ -46,6 +53,7 @@
     "eslint-plugin-react-hooks": "^3.0.0",
     "husky": "^4.2.3",
     "lint-staged": "^10.1.2",
+    "postcss-cli": "^7.1.0",
     "prettier": "^2.0.4"
   },
   "husky": {

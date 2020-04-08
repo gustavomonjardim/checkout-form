@@ -54,7 +54,7 @@
         "no-use-before-define": ["error", { "functions": false }],
         "global-require": "off"
       },
-      "ignorePatterns": ["public/", "node_modules/"],
+      "ignorePatterns": ["/public/", "/node_modules/"],
       "settings": {
         "react": {
           "version": "detect"
