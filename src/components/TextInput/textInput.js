@@ -27,7 +27,7 @@ const TextInput = ({
   };
 
   return (
-    <div className="w-full max-w-lg my-2">
+    <div className="w-full my-2">
       <label className="block text-gray-500 text-xs" htmlFor={id}>
         {label}
       </label>

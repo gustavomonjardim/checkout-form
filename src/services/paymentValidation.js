@@ -37,7 +37,6 @@ const paymentValidation = Yup.object({
     .required('Por favor, informe o código de segurança do cartão.')
     .length(3, 'Por favor, informe o código de segurança do cartão.'),
   installments: Yup.number()
-    .ensure()
     .required('Por favor, informe o número de parcelas.')
     .min(1, 'O número de parcelas deve ser pelo menos 1.')
     .max(12, 'O número de parcelas deve ser no máximo 12.'),
