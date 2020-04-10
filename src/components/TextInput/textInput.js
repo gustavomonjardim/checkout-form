@@ -41,7 +41,7 @@ const TextInput = ({
         onBlur={onBlur}
         maxLength={maxLength}
       />
-      {!!error && <span className="text-red-500 font-regular text-xs">{error}</span>}
+      {!!error && <p className="text-red-500 font-regular leading-tight text-xs mt-2">{error}</p>}
     </div>
   );
 };

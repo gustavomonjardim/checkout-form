@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 
+import CreditCardIcon from '../../assets/svg/CreditCardIcon';
 import { useForm } from '../../context/FormContext';
 import { cardNumberMask, cardDateMask } from '../../services/maskService';
+import CreditCard from '../CreditCard';
 import Step from '../Step';
 import TextInput from '../TextInput';
 
@@ -11,9 +13,21 @@ const CheckoutForm = () => {
 
   return (
     <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-400 md:h-auto md:flex-row md:mx-8">
-      <div className="flex-1 w-full bg-primary md:w-1/3"></div>
+      <div className="relative w-full p-12 bg-primary md:w-1/3">
+        <div className="flex flex-row items-center justify-center">
+          <div className="mr-4">
+            <CreditCardIcon />
+          </div>
+          <h2 className="text-white text-xl font-semibold leading-tight">
+            Adicione um novo cartão de crédito
+          </h2>
+        </div>
+        <div className="flex items-center justify-center -mb-40  mt-8 md:mb-0 md:-mr-24">
+          <CreditCard flipped={values.cvv?.length > 0} />
+        </div>
+      </div>
       <div className="w-full p-12 bg-white md:h-full md:w-2/3  md:px-16 md:pl-32">
-        <div className="w-full flex flex-row">
+        <div className="hidden md:w-full md:flex md:flex-row">
           <Step title="Carrinho" number="1" checked={step >= 1} onClick={() => setStep(0)} />
           <Step title="Pagamento" number="2" checked={step >= 2} onClick={() => setStep(1)} />
           <Step title="Confirmação" number="3" checked={step >= 3} onClick={() => setStep(2)} />
