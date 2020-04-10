@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { useForm } from '../../context/FormContext';
 import { cardNumberMask, cardDateMask } from '../../services/maskService';
+import Step from '../Step';
 import TextInput from '../TextInput';
 
 const CheckoutForm = () => {
   const { handleChange, handleBlur, values, errors, touched } = useForm();
+  const [step, setStep] = useState(1);
 
   return (
-    <div className="w-full max-w-screen-lg h-screen md:h-auto flex flex-col md:flex-row md:mx-8 bg-white border border-solid border-gray-400">
-      <div className="flex-1 w-full md:w-1/3 bg-primary"></div>
-      <div className="w-full md:w-2/3 bg-white md:h-full p-12 md:px-16">
-        <div className="pt-12 md:pt-12">
+    <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-400 md:h-auto md:flex-row md:mx-8">
+      <div className="flex-1 w-full bg-primary md:w-1/3"></div>
+      <div className="w-full p-12 bg-white md:h-full md:w-2/3  md:px-16 md:pl-32">
+        <div className="w-full flex flex-row">
+          <Step title="Carrinho" number="1" checked={step >= 1} onClick={() => setStep(0)} />
+          <Step title="Pagamento" number="2" checked={step >= 2} onClick={() => setStep(1)} />
+          <Step title="Confirmação" number="3" checked={step >= 3} onClick={() => setStep(2)} />
+        </div>
+        <div className="pt-12">
           <TextInput
             id="fullName"
             placeholder="Full Name"
@@ -22,7 +29,7 @@ const CheckoutForm = () => {
             error={touched['fullName'] ? errors['fullName'] : null}
           />
         </div>
-        <div className="pt-12 md:pt-12">
+        <div className="pt-12">
           <TextInput
             id="cardNumber"
             placeholder="0000 0000 0000 0000"
@@ -35,7 +42,7 @@ const CheckoutForm = () => {
             error={touched['cardNumber'] ? errors['cardNumber'] : null}
           />
         </div>
-        <div className="w-full flex flex-wrap pt-12 md:pt-12">
+        <div className="w-full flex flex-wrap pt-12">
           <div className="w-2/3 pr-4">
             <TextInput
               id="expirationDate"
