@@ -120,7 +120,7 @@ export const PaymentForm = () => {
         />
       </div>
       <div className="w-full mt-10 flex justify-center md:justify-end">
-        <div className="w-full md:max-w-xs">
+        <div className="w-64">
           <Button text="Continuar" onClick={submitForm} loading={false} />
         </div>
       </div>
@@ -131,7 +131,7 @@ export const PaymentForm = () => {
 const CheckoutForm = () => {
   return (
     <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-400 md:h-auto md:flex-row md:mx-8">
-      <div className="relative overflow-visible flex-grow flex-shrink-0 w-full h-64 px-5 pt-12 bg-primary md:w-1/3 md:h-auto md:p-8 lg:p-12">
+      <div className="relative overflow-visible flex-grow flex-shrink-0 w-full h-64 px-5 pt-12 bg-primary md:w-1/3 md:h-auto md:p-8">
         <CheckoutHeader />
       </div>
       <div className="w-full flex flex-col justify-end p-10 pt-40 bg-white md:h-full md:w-2/3 md:pt-10 md:pl-24 lg:px-16 lg:pl-32">

@@ -9,7 +9,7 @@ const Button = ({ text, onClick, loading }) => {
       {!loading && (
         <button
           onClick={onClick}
-          className="bg-primary rounded-lg p-4 w-full text-white uppercase font-semibold focus:outline-none hover:bg-red-500"
+          className="bg-primary rounded-lg p-4 w-full text-white uppercase font-bold focus:outline-none hover:bg-red-500"
         >
           {text}
         </button>
