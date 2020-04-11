@@ -11,7 +11,7 @@ function App() {
     fullName: '',
     expirationDate: '',
     cvv: '',
-    installments: 1,
+    installments: '',
   });
 
   const submitPaymentData = (data) => {

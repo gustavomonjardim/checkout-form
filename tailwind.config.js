@@ -7,6 +7,7 @@ module.exports = {
       colors: {
         primary: '#DE4B4B',
         dark: '#3C3C3C',
+        'gray-500': '#C9C9C9',
       },
       width: {
         '68': '17rem',
@@ -15,6 +16,9 @@ module.exports = {
         '80': '20rem',
         '100': '25rem',
         '120': '30rem',
+      },
+      inset: {
+        '1/2': '50%',
       },
     },
   },

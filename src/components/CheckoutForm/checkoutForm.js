@@ -10,6 +10,7 @@ import Step, { StepSeparator } from '../Step';
 import TextInput from '../TextInput';
 
 const CheckoutHeader = () => {
+  const { values } = useForm();
   return (
     <>
       <div className="hidden md:flex md:flex-row md:items-center md:pb-12">
@@ -37,8 +38,14 @@ const CheckoutHeader = () => {
         </h2>
       </div>
 
-      <div className="mx-auto md:mx-0 md:-mr-24 lg:-mr-32">
-        <CreditCard flipped={false} />
+      <div className="w-full flex items-center justify-center md:block md:mx-0 md:-mr-24 lg:-mr-32">
+        <CreditCard
+          flipped={false}
+          name={values.fullName}
+          cardNumber={values.cardNumber}
+          expirationDate={values.expirationDate}
+          cvv={values.cvv}
+        />
       </div>
     </>
   );
@@ -73,7 +80,7 @@ export const PaymentForm = () => {
       <div className="pt-6 md:pt-8">
         <TextInput
           id="fullName"
-          placeholder="0000 0000 0000 0000"
+          placeholder="Nome (igual ao cartão)"
           label="Nome (igual ao cartão)"
           value={values.fullName}
           onChange={handleChange('fullName')}
