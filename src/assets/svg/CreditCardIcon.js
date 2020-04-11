@@ -2,7 +2,7 @@ import React from 'react';
 
 function SvgComponent(props) {
   return (
-    <svg width={50} height={50} viewBox="0 0 50 50" {...props}>
+    <svg viewBox="0 0 50 50" {...props}>
       <defs>
         <style>{'.prefix__b{fill:#fff}'}</style>
       </defs>

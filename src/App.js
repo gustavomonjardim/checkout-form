@@ -11,7 +11,7 @@ function App() {
     fullName: '',
     expirationDate: '',
     cvv: '',
-    installments: 0,
+    installments: 1,
   });
 
   const submitPaymentData = (data) => {
@@ -19,7 +19,7 @@ function App() {
   };
 
   return (
-    <div className="bg-gray-200 min-w-screen min-h-screen flex items-center justify-center">
+    <div className="bg-gray-100 min-w-screen min-h-screen flex items-center justify-center">
       <FormProvider
         initialValues={paymentData}
         onSubmit={submitPaymentData}
