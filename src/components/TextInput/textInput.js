@@ -14,7 +14,7 @@ const TextInput = ({
   formatText,
 }) => {
   const inputClass = classNames(
-    'appearance-none border-b-2 border-gray-400 w-full py-2 pr-4 text-gray-800 leading-tight focus:outline-none focus:border-black'
+    'appearance-none border-b border-gray-500 w-full py-2 pr-4 placeholder-gray-500 text-dark leading-tight focus:outline-none focus:border-dark'
   );
 
   const onChangeText = ({ target }) => {

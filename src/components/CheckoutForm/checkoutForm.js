@@ -59,20 +59,9 @@ export const PaymentForm = () => {
       </div>
       <div className="md:pt-8">
         <TextInput
-          id="fullName"
-          placeholder="Full Name"
-          label="Full Name"
-          value={values.fullName}
-          onChange={handleChange('fullName')}
-          onBlur={handleBlur('fullName')}
-          error={touched['fullName'] ? errors['fullName'] : null}
-        />
-      </div>
-      <div className="pt-6 md:pt-8">
-        <TextInput
           id="cardNumber"
-          placeholder="0000 0000 0000 0000"
-          label="Card Number"
+          placeholder="Número do cartão"
+          label="Número do cartão"
           maxLength={19}
           formatText={(current) => cardNumberMask(current, values.cardNumber)}
           value={values.cardNumber}
@@ -81,12 +70,23 @@ export const PaymentForm = () => {
           error={touched['cardNumber'] ? errors['cardNumber'] : null}
         />
       </div>
+      <div className="pt-6 md:pt-8">
+        <TextInput
+          id="fullName"
+          placeholder="0000 0000 0000 0000"
+          label="Nome (igual ao cartão)"
+          value={values.fullName}
+          onChange={handleChange('fullName')}
+          onBlur={handleBlur('fullName')}
+          error={touched['fullName'] ? errors['fullName'] : null}
+        />
+      </div>
       <div className="w-full flex flex-wrap pt-6 md:pt-8">
         <div className="w-2/3 pr-4">
           <TextInput
             id="expirationDate"
             placeholder="00/00"
-            label="Expiration Date"
+            label="Validade"
             maxLength={5}
             formatText={(current) => cardDateMask(current, values.expirationDate)}
             value={values.expirationDate}
@@ -130,7 +130,7 @@ export const PaymentForm = () => {
 
 const CheckoutForm = () => {
   return (
-    <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-400 md:h-auto md:flex-row md:mx-8">
+    <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-500 md:h-auto md:flex-row md:mx-8">
       <div className="relative overflow-visible flex-grow flex-shrink-0 w-full h-64 px-5 pt-12 bg-primary md:w-1/3 md:h-auto md:p-8">
         <CheckoutHeader />
       </div>
