@@ -1,0 +1,84 @@
+import React from 'react';
+
+import { useForm } from '../../context/FormContext';
+import { cardNumberMask, cardDateMask } from '../../services/maskService';
+import Button from '../Button';
+import TextInput from '../TextInput';
+
+const PaymentForm = () => {
+  const { handleChange, handleBlur, values, errors, touched, submitForm } = useForm();
+
+  return (
+    <>
+      <div className="md:pt-8">
+        <TextInput
+          id="cardNumber"
+          placeholder="Número do cartão"
+          label="Número do cartão"
+          maxLength={19}
+          formatText={(current) => cardNumberMask(current, values.cardNumber)}
+          value={values.cardNumber}
+          onChange={handleChange('cardNumber')}
+          onBlur={handleBlur('cardNumber')}
+          error={touched['cardNumber'] ? errors['cardNumber'] : null}
+        />
+      </div>
+      <div className="pt-6 md:pt-8">
+        <TextInput
+          id="fullName"
+          placeholder="Nome (igual ao cartão)"
+          label="Nome (igual ao cartão)"
+          value={values.fullName}
+          onChange={handleChange('fullName')}
+          onBlur={handleBlur('fullName')}
+          error={touched['fullName'] ? errors['fullName'] : null}
+        />
+      </div>
+      <div className="w-full flex flex-wrap pt-6 md:pt-8">
+        <div className="w-2/3 pr-4">
+          <TextInput
+            id="expirationDate"
+            placeholder="00/00"
+            label="Validade"
+            maxLength={5}
+            formatText={(current) => cardDateMask(current, values.expirationDate)}
+            value={values.expirationDate}
+            onChange={handleChange('expirationDate')}
+            onBlur={handleBlur('expirationDate')}
+            error={touched['expirationDate'] ? errors['expirationDate'] : null}
+          />
+        </div>
+        <div className="w-1/3">
+          <TextInput
+            id="cvv"
+            placeholder="000"
+            label="CVV"
+            maxLength={3}
+            value={values.cvv}
+            onChange={handleChange('cvv')}
+            onBlur={handleBlur('cvv')}
+            error={touched['cvv'] ? errors['cvv'] : null}
+          />
+        </div>
+      </div>
+      <div className="pt-6 md:pt-8">
+        <TextInput
+          id="installments"
+          placeholder="Número de parcelas"
+          label="Número de parcelas"
+          value={values.installments}
+          onChange={handleChange('installments')}
+          onBlur={handleBlur('installments')}
+          error={touched['installments'] ? errors['installments'] : null}
+        />
+      </div>
+      <div className="w-full mt-10 flex justify-center md:justify-end">
+        <div className="w-64">
+          <Button text="Continuar" onClick={submitForm} loading={false} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default PaymentForm;
