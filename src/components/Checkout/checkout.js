@@ -6,7 +6,7 @@ import CheckoutHeader from '../CheckoutHeader';
 import PaymentForm from '../PaymentForm';
 import Step, { StepSeparator } from '../Step';
 
-const CheckoutForm = () => {
+const Checkout = () => {
   const [step, setStep] = useState(1);
 
   const [paymentData] = useState({
@@ -47,4 +47,4 @@ const CheckoutForm = () => {
   );
 };
 
-export default CheckoutForm;
+export default Checkout;
