@@ -1,7 +1,7 @@
 import propTypes from 'prop-types';
 import React from 'react';
 
-// import Loader from '../Loader';
+import Loader from '../Loader';
 
 const Button = ({ text, onClick, loading }) => {
   return (
@@ -14,7 +14,7 @@ const Button = ({ text, onClick, loading }) => {
           {text}
         </button>
       )}
-      {/* {loading && <Loader />} */}
+      {loading && <Loader />}
     </>
   );
 };
