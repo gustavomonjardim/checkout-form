@@ -9,7 +9,7 @@ import './styles.css';
 
 export const FrontText = ({ children }) => {
   return (
-    <p className="text-xs text-white uppercase leading-none tracking-normal text-shadow lg:text-md">
+    <p className="text-xs text-white uppercase leading-none tracking-normal text-shadow md:text-sm lg:text-md">
       {children}
     </p>
   );

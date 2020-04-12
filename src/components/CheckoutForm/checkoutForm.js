@@ -29,7 +29,7 @@ const CheckoutHeader = () => {
         </p>
       </div>
 
-      <div className="flex flex-row items-center justify-center pb-5 md:pb-8 md:justify-start">
+      <div className="flex flex-row items-center justify-center pb-4 md:pb-8 md:justify-start">
         <div className="mr-4 w-12 h-12 flex-shrink-0">
           <CreditCardIcon />
         </div>
@@ -138,10 +138,10 @@ export const PaymentForm = () => {
 const CheckoutForm = () => {
   return (
     <div className="w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-500 md:h-auto md:flex-row md:mx-8">
-      <div className="relative overflow-visible flex-grow flex-shrink-0 w-full h-64 px-5 pt-12 bg-primary md:w-1/3 md:h-auto md:p-8">
+      <div className="relative overflow-visible flex-grow flex-shrink-0 w-full h-64 px-5 pt-8 bg-primary md:w-1/3 md:h-auto md:pt-12 md:p-8">
         <CheckoutHeader />
       </div>
-      <div className="w-full flex flex-col justify-end p-10 pt-40 bg-white md:h-full md:w-2/3 md:pt-10 md:pl-24 lg:px-16 lg:pl-32">
+      <div className="w-full flex flex-col justify-end p-10 pt-24 bg-white md:h-full md:w-2/3 md:pt-10 md:pl-24 lg:px-16 lg:pl-32">
         <PaymentForm />
       </div>
     </div>
