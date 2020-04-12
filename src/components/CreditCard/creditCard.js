@@ -21,7 +21,6 @@ const getCardNumberBlock = (block) => {
 
 export const CreditCardFront = ({ name, cardNumber, expirationDate }) => {
   const cardNumberArray = cardNumber.split(' ');
-  console.log(cardNumberArray);
   return (
     <div className="w-full h-full">
       <CreditCardFrontSide />
