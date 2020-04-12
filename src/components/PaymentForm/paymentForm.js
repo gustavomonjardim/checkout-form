@@ -1,9 +1,16 @@
 import React from 'react';
 
 import { useForm } from '../../context/FormContext';
-import { cardNumberMask, cardDateMask } from '../../services/maskService';
+import { cardNumberMask, cardDateMask, currencyMask } from '../../services/maskService';
 import Button from '../Button';
 import TextInput from '../TextInput';
+
+const generateInstallments = (value) => {
+  return Array.from(Array(12).keys()).map((item, index) => ({
+    value: index + 1,
+    label: `${index + 1}x ${currencyMask(value / (index + 1))} sem juros`,
+  }));
+};
 
 const PaymentForm = () => {
   const { handleChange, handleBlur, values, errors, touched, submitForm } = useForm();
@@ -63,6 +70,8 @@ const PaymentForm = () => {
       </div>
       <div className="pt-6 md:pt-8">
         <TextInput
+          select
+          options={generateInstallments(12000)}
           id="installments"
           placeholder="Número de parcelas"
           label="Número de parcelas"
