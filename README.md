@@ -4,6 +4,9 @@
 
 Checkout component built with React, Tailwind, Formik and CSS 3D Transforms
 
+![](./docs/checkout.png)
+
+
 ## Prerequisites
 
 - [Node](https://nodejs.org/en/)
