@@ -11,24 +11,27 @@ import PaymentForm from './components/PaymentForm';
 
 import './styles.css';
 
+const initialValues = {
+  cardNumber: '',
+  fullName: '',
+  expirationDate: '',
+  cvv: '',
+  installments: '',
+};
+
 const Checkout = () => {
   const [step, setStep] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
 
-  const [paymentData, setPaymentData] = useState({
-    cardNumber: '',
-    fullName: '',
-    expirationDate: '',
-    cvv: '',
-    installments: '',
-  });
+  const [paymentData, setPaymentData] = useState(initialValues);
 
   const flipCard = () => {
     setCardFlipped((c) => !c);
   };
 
-  const submitPaymentData = (data) => {
+  const submitPaymentData = (data, { resetForm }) => {
     setPaymentData(data);
+    resetForm();
     setStep(step + 1);
   };
 
