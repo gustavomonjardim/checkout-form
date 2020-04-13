@@ -6,7 +6,7 @@ export const api = {
           resolve({
             data: { url, body },
           }),
-        5000
+        3000
       )
     ),
 };
