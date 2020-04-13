@@ -2,7 +2,6 @@ import React from 'react';
 
 import { useForm } from '../../context/FormContext';
 import { cardNumberMask, cardDateMask, currencyMask } from '../../services/maskService';
-import Button from '../Button';
 import TextInput from '../TextInput';
 
 const generateInstallments = (value) => {
@@ -13,7 +12,7 @@ const generateInstallments = (value) => {
 };
 
 const PaymentForm = () => {
-  const { handleChange, handleBlur, values, errors, touched, submitForm } = useForm();
+  const { handleChange, handleBlur, values, errors, touched } = useForm();
 
   return (
     <>
@@ -80,11 +79,6 @@ const PaymentForm = () => {
           onBlur={handleBlur('installments')}
           error={touched['installments'] ? errors['installments'] : null}
         />
-      </div>
-      <div className="w-full mt-10 flex justify-center md:justify-end">
-        <div className="w-64">
-          <Button text="Continuar" onClick={submitForm} loading={false} />
-        </div>
       </div>
     </>
   );

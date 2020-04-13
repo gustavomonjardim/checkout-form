@@ -1,0 +1,5 @@
+@media (min-width: 768px) {
+  .checkout-card {
+    min-height: 620px;
+  }
+}
