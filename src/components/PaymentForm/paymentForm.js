@@ -1,3 +1,4 @@
+import propTypes from 'prop-types';
 import React from 'react';
 
 import { useForm } from '../../context/FormContext';
@@ -11,8 +12,13 @@ const generateInstallments = (value) => {
   }));
 };
 
-const PaymentForm = () => {
+const PaymentForm = ({ flipCard }) => {
   const { handleChange, handleBlur, values, errors, touched } = useForm();
+
+  const handleCVVBlur = (evt) => {
+    flipCard();
+    handleBlur('cvv')(evt);
+  };
 
   return (
     <>
@@ -62,7 +68,8 @@ const PaymentForm = () => {
             maxLength={3}
             value={values.cvv}
             onChange={handleChange('cvv')}
-            onBlur={handleBlur('cvv')}
+            onBlur={handleCVVBlur}
+            onFocus={flipCard}
             error={touched['cvv'] ? errors['cvv'] : null}
           />
         </div>
@@ -82,6 +89,10 @@ const PaymentForm = () => {
       </div>
     </>
   );
+};
+
+PaymentForm.propTypes = {
+  flipCard: propTypes.func.isRequired,
 };
 
 export default PaymentForm;

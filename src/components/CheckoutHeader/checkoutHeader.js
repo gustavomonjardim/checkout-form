@@ -6,7 +6,7 @@ import CreditCardIcon from '../../assets/svg/CreditCardIcon';
 import { useForm } from '../../context/FormContext';
 import CreditCard from '../CreditCard';
 
-const CheckoutHeader = ({ goBack, step }) => {
+const CheckoutHeader = ({ goBack, step, cardFlipped }) => {
   const { values } = useForm();
   return (
     <>
@@ -56,7 +56,7 @@ const CheckoutHeader = ({ goBack, step }) => {
       {step === 1 && (
         <div className="w-full flex items-center justify-center md:block md:mx-0 md:-mr-24 lg:-mr-32">
           <CreditCard
-            flipped={false}
+            flipped={cardFlipped}
             name={values.fullName}
             cardNumber={values.cardNumber}
             expirationDate={values.expirationDate}
@@ -71,6 +71,7 @@ const CheckoutHeader = ({ goBack, step }) => {
 CheckoutHeader.propTypes = {
   step: propTypes.number.isRequired,
   goBack: propTypes.func.isRequired,
+  cardFlipped: propTypes.bool.isRequired,
 };
 
 export default CheckoutHeader;

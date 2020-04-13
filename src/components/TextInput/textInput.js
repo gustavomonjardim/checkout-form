@@ -44,6 +44,7 @@ const TextInput = ({
   value,
   onChange,
   onBlur,
+  onFocus,
   error,
   maxLength,
   formatText,
@@ -74,6 +75,7 @@ const TextInput = ({
           value={value}
           onChange={onChangeText}
           onBlur={onBlur}
+          onFocus={onFocus}
           maxLength={maxLength}
         />
       )}
@@ -108,6 +110,7 @@ TextInput.propTypes = {
   value: propTypes.string.isRequired,
   onChange: propTypes.func.isRequired,
   onBlur: propTypes.func.isRequired,
+  onFocus: propTypes.func,
   error: propTypes.string,
   maxLength: propTypes.number,
   formatText: propTypes.func,
@@ -121,6 +124,7 @@ TextInput.defaultProps = {
   formatText: null,
   select: false,
   options: [],
+  onFocus: () => {},
 };
 
 export default TextInput;

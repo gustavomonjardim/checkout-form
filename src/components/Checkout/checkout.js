@@ -11,6 +11,11 @@ import './styles.css';
 
 const Checkout = () => {
   const [step, setStep] = useState(0);
+  const [cardFlipped, setCardFlipped] = useState(false);
+
+  const flipCard = () => {
+    setCardFlipped((c) => !c);
+  };
 
   const [paymentData, setPaymentData] = useState({
     cardNumber: '',
@@ -40,7 +45,7 @@ const Checkout = () => {
     >
       <div className="checkout-card w-full max-w-screen-lg h-screen flex flex-col bg-white border border-solid border-gray-500 md:h-auto md:flex-row md:flex-grow md:mx-8">
         <div className="relative overflow-visible w-full h-64 px-5 pt-8 bg-primary md:w-1/3 md:h-auto md:pt-12 md:p-8">
-          <CheckoutHeader goBack={goBack} step={step} />
+          <CheckoutHeader goBack={goBack} step={step} cardFlipped={cardFlipped} />
         </div>
 
         <div className="checkout-card w-full h-full flex flex-col justify-between p-10 pt-24 bg-white md:w-2/3 md:pt-10 md:pl-24 lg:pr-16 lg:pl-32">
@@ -57,7 +62,7 @@ const Checkout = () => {
               <p className="w-full text-center text-gray-500 text-lg">Carrinho</p>
             </div>
           )}
-          {step === 1 && <PaymentForm />}
+          {step === 1 && <PaymentForm flipCard={flipCard} />}
           {step === 2 && (
             <div>
               <p className="w-full text-center text-gray-500 text-lg">Confirmar dados</p>
