@@ -1,5 +1,6 @@
 import propTypes from 'prop-types';
 import React from 'react';
+import FadeIn from 'react-fade-in';
 
 import { useForm } from '../../context/FormContext';
 import { cardNumberMask, cardDateMask, currencyMask } from '../../services/maskService';
@@ -21,7 +22,7 @@ const PaymentForm = ({ flipCard }) => {
   };
 
   return (
-    <>
+    <FadeIn className="w-full">
       <div className="md:pt-8">
         <TextInput
           id="cardNumber"
@@ -87,7 +88,7 @@ const PaymentForm = ({ flipCard }) => {
           error={touched['installments'] ? errors['installments'] : null}
         />
       </div>
-    </>
+    </FadeIn>
   );
 };
 
