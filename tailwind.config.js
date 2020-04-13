@@ -2,6 +2,7 @@ module.exports = {
   theme: {
     fontFamily: {
       sans: ['Verdana', 'sans-serif'],
+      mono: ['SFPro', 'monospace'],
     },
     extend: {
       colors: {

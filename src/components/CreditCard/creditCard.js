@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import propTypes from 'prop-types';
 import React from 'react';
 
+import Visa from '../../assets/images/visa.png';
 import { FrontSide, BackSide } from '../../assets/svg/CreditCard';
 
 import './styles.css';
@@ -19,27 +20,34 @@ const getCardNumberBlock = (block) => {
 };
 
 export const CreditCardFrontSide = ({ name, cardNumber, expirationDate, generic }) => {
-  const cardNumberArray = cardNumber.split(' ');
+  let cardNumberArray = cardNumber.split(' ');
+
+  while (cardNumberArray.length < 4) {
+    cardNumberArray = [...cardNumberArray, null];
+  }
+
   return (
     <div className="w-full h-full">
       <FrontSide generic={generic} />
-      <div className="card-content inset-0 flex flex-col justify-end items-center p-4 lg:p-6">
-        <div className="w-full flex flex-row justify-between">
-          <span className="text-white text-lg lg:text-2xl uppercase text-shadow ">
-            {cardNumberArray[0] ? getCardNumberBlock(cardNumberArray[0]) : '****'}
-          </span>
-          <span className="text-white text-lg lg:text-2xl uppercase text-shadow ">
-            {cardNumberArray[1] ? getCardNumberBlock(cardNumberArray[1]) : '****'}
-          </span>
-          <span className="text-white text-lg lg:text-2xl uppercase text-shadow ">
-            {cardNumberArray[2] ? getCardNumberBlock(cardNumberArray[2]) : '****'}
-          </span>
-          <span className="text-white text-lg lg:text-2xl uppercase text-shadow ">
-            {cardNumberArray[3] ? getCardNumberBlock(cardNumberArray[3]) : '****'}
-          </span>
+      <div className="card-content inset-0 flex flex-col items-center justify-between p-4 lg:p-6">
+        {!generic ? (
+          <img className="self-start h-4 mt-2 lg:h-5" src={Visa} alt="" />
+        ) : (
+          <div className="h-4 mt-2 lg:h-5"></div>
+        )}
+
+        <div className="w-full flex flex-row justify-between self-center">
+          {cardNumberArray.map((block, index) => (
+            <span
+              key={index}
+              className="text-white text-lg lg:text-2xl uppercase text-shadow tracking-widest"
+            >
+              {block ? getCardNumberBlock(block) : '****'}
+            </span>
+          ))}
         </div>
 
-        <div className="w-full flex flex-row justify-between items-center overflow-hidden mb-1 mt-8 md:mb-3 lg:mb-4">
+        <div className="w-full flex flex-row justify-between items-center overflow-hidden mb-1 md:mb-3 lg:mb-4">
           <CardText>{name.length > 0 ? name : 'Nome do Titular'}</CardText>
           <div className="ml-3">
             <CardText>{expirationDate.length > 0 ? expirationDate : '00/00'}</CardText>
@@ -64,7 +72,7 @@ export const CreditCardBackSide = ({ cvv, generic }) => {
 const CreditCard = ({ flipped, name, cardNumber, expirationDate, cvv }) => {
   const cardClasses = classNames('card', { 'is-flipped': flipped });
   return (
-    <div className="scene">
+    <div className="scene font-mono">
       <div className={cardClasses}>
         <div className="card-back">
           <CreditCardBackSide cvv={cvv} generic={!cardNumber?.length > 0} />
