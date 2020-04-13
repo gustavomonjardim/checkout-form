@@ -36,7 +36,7 @@ const PaymentForm = ({ flipCard }) => {
           error={touched['cardNumber'] ? errors['cardNumber'] : null}
         />
       </div>
-      <div className="pt-6 md:pt-8">
+      <div className="pt-2">
         <TextInput
           id="fullName"
           placeholder="Nome (igual ao cartão)"
@@ -47,7 +47,7 @@ const PaymentForm = ({ flipCard }) => {
           error={touched['fullName'] ? errors['fullName'] : null}
         />
       </div>
-      <div className="w-full flex flex-wrap pt-6 md:pt-8">
+      <div className="w-full flex flex-wrap pt-2">
         <div className="w-2/3 pr-4">
           <TextInput
             id="expirationDate"
@@ -75,7 +75,7 @@ const PaymentForm = ({ flipCard }) => {
           />
         </div>
       </div>
-      <div className="pt-6 md:pt-8">
+      <div className="pt-2">
         <TextInput
           select
           options={generateInstallments(12000)}

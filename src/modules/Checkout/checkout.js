@@ -15,10 +15,6 @@ const Checkout = () => {
   const [step, setStep] = useState(0);
   const [cardFlipped, setCardFlipped] = useState(false);
 
-  const flipCard = () => {
-    setCardFlipped((c) => !c);
-  };
-
   const [paymentData, setPaymentData] = useState({
     cardNumber: '',
     fullName: '',
@@ -26,6 +22,10 @@ const Checkout = () => {
     cvv: '',
     installments: '',
   });
+
+  const flipCard = () => {
+    setCardFlipped((c) => !c);
+  };
 
   const submitPaymentData = (data) => {
     setPaymentData(data);
@@ -46,7 +46,7 @@ const Checkout = () => {
       validationSchema={paymentValidation}
     >
       <div className="checkout-card w-full max-w-screen-lg h-screen flex flex-col bg-white border border-gray-500 md:h-auto md:flex-row md:mx-8">
-        <div className="relative overflow-visible w-full h-64 px-5 pt-8 bg-primary md:w-1/3 md:h-auto md:pt-12 md:p-8">
+        <div className="relative overflow-visible w-full h-64 px-5 pt-8 bg-primary md:w-1/3 md:h-auto md:p-8 md:pt-12 lg:pl-12 lg:pr-6">
           <CheckoutHeader goBack={goBack} step={step} cardFlipped={cardFlipped} />
         </div>
 

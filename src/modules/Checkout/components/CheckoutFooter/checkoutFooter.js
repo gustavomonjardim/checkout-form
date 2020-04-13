@@ -25,11 +25,10 @@ const CheckoutFooter = ({ step, setStep }) => {
     setLoading(false);
 
     if (err) {
-      console.log('handle error');
       return;
     }
 
-    console.log('handle success', res);
+    console.log(res);
     setStep(step + 1);
   };
 

@@ -62,7 +62,7 @@ const TextInput = ({
   };
 
   return (
-    <div className="w-full my-2">
+    <div className="w-full my-2 h-20">
       <label className="block text-gray-500 text-xs" htmlFor={id}>
         {label}
       </label>
