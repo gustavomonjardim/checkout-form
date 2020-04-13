@@ -10,47 +10,42 @@ const CheckoutHeader = ({ goBack, step, cardFlipped }) => {
   const { values } = useForm();
   return (
     <>
-      <button
-        onClick={goBack}
-        className="hidden md:flex md:flex-row md:items-center md:pb-12 focus:outline-none"
-      >
-        <div className="text-white h-8 w-8 mr-2">
-          <ChevronLeft />
-        </div>
-        <span className="text-white text-sm leading-tight">Alterar forma de pagamento</span>
-      </button>
+      {step !== 3 && (
+        <>
+          <button
+            onClick={goBack}
+            className="hidden md:flex md:flex-row md:items-center md:pb-12 focus:outline-none"
+          >
+            <div className="text-white h-8 w-8 mr-2">
+              <ChevronLeft />
+            </div>
+            <span className="text-white text-sm leading-tight">Alterar forma de pagamento</span>
+          </button>
 
-      <div className="w-full relative align-middle mb-6 md:hidden">
-        <button
-          onClick={goBack}
-          className="absolute top-0 left-0 text-white h-8 w-8 mr-2 focus:outline-none"
-        >
-          <ChevronLeft />
-        </button>
-        <p className="text-white text-center text-sm leading-8">
-          <span className="font-bold">Etapa {step + 1}</span> de 3
-        </p>
-      </div>
+          <div className="w-full relative align-middle mb-6 md:hidden">
+            <button
+              onClick={goBack}
+              className="absolute top-0 left-0 text-white h-8 w-8 mr-2 focus:outline-none"
+            >
+              <ChevronLeft />
+            </button>
+            <p className="text-white text-center text-sm leading-8">
+              <span className="font-bold">Etapa {step + 1}</span> de 3
+            </p>
+          </div>
+        </>
+      )}
 
       <div className="flex flex-row items-center justify-center pb-4 md:pb-8 md:justify-start">
         <div className="mr-4 w-12 h-12 flex-shrink-0">
           <CreditCardIcon />
         </div>
-        {step === 0 && (
-          <h2 className="text-white text-lg lg:text-xl font-bold leading-tight">
-            Confirme os itens {<br />} do seu carrinho
-          </h2>
-        )}
-        {step === 1 && (
-          <h2 className="text-white text-lg lg:text-xl font-bold leading-tight">
-            Adicione um novo {<br />} cartão de crédito
-          </h2>
-        )}
-        {step === 2 && (
-          <h2 className="text-white text-lg lg:text-xl font-bold leading-tight">
-            Confirme a {<br />} sua compra
-          </h2>
-        )}
+        <h2 className="text-white text-lg lg:text-xl font-bold leading-tight">
+          {step === 0 && <>Confirme os itens {<br />} do seu carrinho</>}
+          {step === 1 && <>Adicione um novo {<br />} cartão de crédito</>}
+          {step === 2 && <> Confirme a {<br />} sua compra</>}
+          {step === 3 && <>Compra {<br />} conluída!</>}
+        </h2>
       </div>
 
       {step === 1 && (

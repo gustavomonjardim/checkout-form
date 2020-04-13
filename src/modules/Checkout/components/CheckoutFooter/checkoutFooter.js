@@ -1,13 +1,39 @@
 import propTypes from 'prop-types';
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 
 import Button from '../../../../components/Button';
 import { useForm } from '../../../../context/FormContext';
+import { pay } from '../../../../services/apiService';
 
 const CheckoutFooter = ({ step, setStep }) => {
+  const [loading, setLoading] = useState(false);
   const { submitForm } = useForm();
 
-  const handleClick = () => {
+  const buttonText = useMemo(() => {
+    if (step === 2) {
+      return 'Pagar';
+    }
+    if (step === 3) {
+      return 'Comprar novamente';
+    }
+    return 'Continuar';
+  }, [step]);
+
+  const handlePayment = async () => {
+    setLoading(true);
+    const [err, res] = await pay('data');
+    setLoading(false);
+
+    if (err) {
+      console.log('handle error');
+      return;
+    }
+
+    console.log('handle success', res);
+    setStep(step + 1);
+  };
+
+  const handleClick = async () => {
     if (step === 0) {
       setStep(step + 1);
       return;
@@ -19,13 +45,20 @@ const CheckoutFooter = ({ step, setStep }) => {
     }
 
     if (step === 2) {
-      console.log('pagando...');
+      handlePayment();
+      return;
+    }
+
+    if (step === 3) {
+      setStep(0);
+      return;
     }
   };
+
   return (
     <div className="w-full mt-10 flex justify-center md:justify-end">
       <div className="w-64">
-        <Button text={step === 2 ? 'Pagar' : 'Continuar'} onClick={handleClick} loading={false} />
+        <Button text={buttonText} onClick={handleClick} loading={loading} />
       </div>
     </div>
   );

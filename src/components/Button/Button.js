@@ -5,7 +5,7 @@ import Loader from '../Loader';
 
 const Button = ({ text, onClick, loading }) => {
   return (
-    <>
+    <div className="w-full h-16 flex justify-center items-center">
       {!loading && (
         <button
           onClick={onClick}
@@ -15,7 +15,7 @@ const Button = ({ text, onClick, loading }) => {
         </button>
       )}
       {loading && <Loader />}
-    </>
+    </div>
   );
 };
 
