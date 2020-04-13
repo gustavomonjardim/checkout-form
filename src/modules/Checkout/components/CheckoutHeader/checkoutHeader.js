@@ -1,10 +1,10 @@
 import propTypes from 'prop-types';
 import React from 'react';
 
-import { ChevronLeft } from '../../assets/svg/Chevron';
-import CreditCardIcon from '../../assets/svg/CreditCardIcon';
-import { useForm } from '../../context/FormContext';
-import CreditCard from '../CreditCard';
+import { ChevronLeft } from '../../../../assets/svg/Chevron';
+import CreditCardIcon from '../../../../assets/svg/CreditCardIcon';
+import CreditCard from '../../../../components/CreditCard';
+import { useForm } from '../../../../context/FormContext';
 
 const CheckoutHeader = ({ goBack, step, cardFlipped }) => {
   const { values } = useForm();

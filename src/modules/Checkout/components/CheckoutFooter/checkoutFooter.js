@@ -1,8 +1,8 @@
 import propTypes from 'prop-types';
 import React from 'react';
 
-import { useForm } from '../../context/FormContext';
-import Button from '../Button';
+import Button from '../../../../components/Button';
+import { useForm } from '../../../../context/FormContext';
 
 const CheckoutFooter = ({ step, setStep }) => {
   const { submitForm } = useForm();

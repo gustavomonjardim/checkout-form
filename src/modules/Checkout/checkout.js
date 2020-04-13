@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
+import Step, { StepSeparator } from '../../components/Step';
 import { FormProvider } from '../../context/FormContext';
 import { paymentValidation } from '../../services/paymentValidation';
-import CheckoutFooter from '../CheckoutFooter';
-import CheckoutHeader from '../CheckoutHeader';
-import PaymentForm from '../PaymentForm';
-import Step, { StepSeparator } from '../Step';
+
+import CheckoutFooter from './components/CheckoutFooter';
+import CheckoutHeader from './components/CheckoutHeader';
+import PaymentForm from './components/PaymentForm';
 
 import './styles.css';
 

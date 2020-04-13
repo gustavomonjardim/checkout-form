@@ -2,9 +2,9 @@ import propTypes from 'prop-types';
 import React from 'react';
 import FadeIn from 'react-fade-in';
 
-import { useForm } from '../../context/FormContext';
-import { cardNumberMask, cardDateMask, currencyMask } from '../../services/maskService';
-import TextInput from '../TextInput';
+import TextInput from '../../../../components/TextInput';
+import { useForm } from '../../../../context/FormContext';
+import { cardNumberMask, cardDateMask, currencyMask } from '../../../../services/maskService';
 
 const generateInstallments = (value) => {
   return Array.from(Array(12).keys()).map((item, index) => ({

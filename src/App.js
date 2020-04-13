@@ -1,7 +1,7 @@
 import React from 'react';
 
 import './styles/global.css';
-import Checkout from './components/Checkout';
+import Checkout from './modules/Checkout';
 
 function App() {
   return (
