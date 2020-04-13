@@ -52,6 +52,12 @@ You can run tests with the following command:
 $ yarn test
 ```
 
+## To do
+
+- Add environment variables to set the request time of the API and the total value of the purchase.
+- Build the UI for the Bag and Confirmation steps.
+- Add support to all card brands besides Visa.
+
 ## License
 
 Licensed under the [MIT License](./LICENSE).
